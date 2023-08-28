@@ -11,3 +11,11 @@ def index(request):
         'cities': cities,
     }
     return HttpResponse(template.render(context, request))
+
+def yurtici(request):
+    incities = Blog.objects.filter(ulkeAdi='Türkiye').values()
+    template2 = loader.get_template('pages/yurtici.html')
+    context2 = {
+        'incities' : incities,
+    }
+    return HttpResponse(template2.render(context2, request))
