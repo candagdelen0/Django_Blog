@@ -19,3 +19,11 @@ def yurtici(request):
         'incities' : incities,
     }
     return HttpResponse(template2.render(context2, request))
+
+def yurtdisi(request):
+    outcities = Blog.objects.all().values()
+    template3 = loader.get_template('pages/yurtdisi.html')
+    context3 = {
+        'outcities': outcities,
+    }
+    return HttpResponse(template3.render(context3, request))
