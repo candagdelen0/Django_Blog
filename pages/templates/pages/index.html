@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-3">
+    <div class="row">
+        <div class="col-8">
+            {% for city in cities %}
+            	<div class="card mb-3 mt-3">
+                <div class="row">
+                    <div class="col-4 text-center mt-3 pb-3"><img class="img-fluid ms-2 rounded" src="{% static 'img/'|add:city.sehirResmi %}" alt="{{ city.sehiradi}}"></div>
+                    <div class="col-8 p-2">
+                        <h5 class="card-title pt-2"><a href="/details/{{ city.id }}" style="text-decoration: none;" class="text-dark">{{ city.sehiradi }} / <em>{{ city.ulkeAdi }}</em></a></h5>
+                        <p class="card-text me-2">{{ city.aciklama }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    <div class="col-4">
+        <div class="card mb-3 mt-3">
+                <div class="row">
+                    <div class="col-4 text-center mt-3 pb-3">Resim</div>
+                    <div class="col-8 p-2">
+                        <h5 class="card-title pt-2">Reklam Alanı</h5>
+                        <p class="card-text me-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, officia!</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
