@@ -6,3 +6,6 @@ class Blog(models.Model):
     sehirResmi = models.CharField(max_length=100)
     aciklama = models.CharField(max_length=255)
     metin = models.TextField()
+    
+    def __str__(self):
+        return  f"{self.sehiradi} - {self.ulkeAdi}"
