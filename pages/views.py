@@ -27,3 +27,11 @@ def yurtdisi(request):
         'outcities': outcities,
     }
     return HttpResponse(template3.render(context3, request))
+
+def details(request, id):
+    detay = Blog.objects.get(id=id)
+    template = loader.get_template('pages/details.html')
+    context = {
+        'detay': detay,
+    }
+    return HttpResponse(template.render(context,request))
