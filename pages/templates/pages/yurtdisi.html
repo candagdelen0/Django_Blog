@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            {% for outcity in outcities %}
+            	{% if outcity.ulkeAdi != "Türkiye" %}
+            		<div class="card mb-3 mt-3">
+            <div class="row">
+                <div class="col-md-4 text-center mt-3 pb-3"><img class="img-fluid ms-2 rounded" src="{% static 'pages/img/'|add:outcity.sehirResmi %}" alt="{{ outcity.sehiradi }}"></div>
+                <div class="col-md-8 p-2">
+                    <h5 class="card-title pt-2"><a href="/details/{{ outcity.id }}" style="text-decoration: none;" class="text-dark">{{ outcity.sehiradi }} / <em>{{ outcity.ulkeAdi }}</em></a></h5>
+                    <p class="card-text me-2">{{ outcity.aciklama }}</p>
+                </div>
+            </div>
+        </div>
+            	{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
