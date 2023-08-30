@@ -43,3 +43,11 @@ def advise(request):
         'myadvise': myadvise,
     }
     return HttpResponse(template4.render(context,request))
+
+def advisedetail(request, id):
+    adetay = Adviser.objects.get(id=id)
+    template = loader.get_template('pages/advisedetails.html')
+    context = {
+        'adetay' : adetay,
+    }
+    return HttpResponse(template.render(context, request))
