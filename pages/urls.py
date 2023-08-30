@@ -6,4 +6,5 @@ urlpatterns = [
     path("yurtici", views.yurtici),
     path('yurtdisi',views.yurtdisi),
     path('details/<int:id>', views.details, name='details'),
+    path('advise',views.advise),
 ]

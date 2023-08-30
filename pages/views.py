@@ -35,3 +35,11 @@ def details(request, id):
         'detay': detay,
     }
     return HttpResponse(template.render(context,request))
+
+def advise(request):
+    myadvise = Adviser.objects.all().values()
+    template4 = loader.get_template('pages/oneriler.html')
+    context = {
+        'myadvise': myadvise,
+    }
+    return HttpResponse(template4.render(context,request))
