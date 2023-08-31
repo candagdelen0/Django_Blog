@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 mx-auto">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th style="width:120px;">Pic</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th colspan="2"></th>
+    </tr>
+    </thead>
+<tbody>
+    {% for city in liste %}
+        <tr>
+                                <td>
+                                    <img src="{{ city.image }}" class="img-fluid">
+                                </td>
+                                <td>{{ city.sehiradi }} / <em>{{ city.ulkeAdi }}</em></td>
+            <td>{{ city.aciklama }}</td>
+            <td><a href="{% url 'text_edit' city.id %}" class="btn btn-warning btn-sm">Edit</a></td>
+            <td><a href="{% url 'text_delete' city.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+                            </tr>
+    {% endfor %}
+{% for advs in liste2 %}
+	    <tr>
+        <td>
+            <img src="{{ advs.image.url }}" class="img-fluid">
+        </td>
+        <td>{{ advs.baslik }}</td>
+        <td>{{ advs.aciklama }}</td>
+        <td><a href="{% url 'advise_edit' advs.id %}" class="btn btn-warning btn-sm">Edit</a></td>
+            <td><a href="{% url 'advise_delete' advs.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+{% endfor %}
+
+    </tbody>
+</table>
+        </div>
+    </div>
+    </div>
+{% endblock %}
