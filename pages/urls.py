@@ -10,5 +10,6 @@ urlpatterns = [
     path('advisedetails/<int:id>', views.advisedetail),
     path('create-text',views.create_text, name="create_text"),
     path('create-advise', views.create_advise, name="create_advise"),
+    path('yazi-listesi',views.yazi_listesi, name="yazi_listesi"),
     
 ]
