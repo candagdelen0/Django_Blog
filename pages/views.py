@@ -51,3 +51,13 @@ def advisedetail(request, id):
         'adetay' : adetay,
     }
     return HttpResponse(template.render(context, request))
+
+def create_text(request):
+    if request.method == "POST":
+        form = TextCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return  redirect("/")
+    else:
+        form = TextCreateForm()
+    return  render(request, "pages/create-text.html", {"form":form})
