@@ -61,3 +61,13 @@ def create_text(request):
     else:
         form = TextCreateForm()
     return  render(request, "pages/create-text.html", {"form":form})
+
+def create_advise(request):
+    if request.method == "POST":
+        form = AdviseCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+    else:
+        form = AdviseCreateForm()
+    return render(request, "pages/create-advise.html",{"form":form})
