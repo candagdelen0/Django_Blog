@@ -71,3 +71,8 @@ def create_advise(request):
     else:
         form = AdviseCreateForm()
     return render(request, "pages/create-advise.html",{"form":form})
+
+def yazi_listesi(request):
+    liste = Blog.objects.all()
+    liste2 = Adviser.objects.all()
+    return render(request, 'pages/yazi-listesi.html', {"liste": liste, "liste2": liste2})
