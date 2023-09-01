@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import Blog, Adviser
 from django.core.paginator import Paginator
+from pages.forms import TextCreateForm, AdviseCreateForm
 
 def index(request):
     cities = Blog.objects.all().values()
@@ -76,3 +77,13 @@ def yazi_listesi(request):
     liste = Blog.objects.all()
     liste2 = Adviser.objects.all()
     return render(request, 'pages/yazi-listesi.html', {"liste": liste, "liste2": liste2})
+
+def text_edit(request, id):
+    mytext = get_object_or_404(Blog, pk=id)
+    if request.method == "POST":
+        form = TextCreateForm(request.POST, request.FILES, instance=mytext)
+        form.save()
+        return redirect("/yazi-listesi")
+    else:
+        form = TextCreateForm(instance=mytext)
+    return render(request, 'pages/edit-text.html',{"form":form})
