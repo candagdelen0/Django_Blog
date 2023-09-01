@@ -13,5 +13,6 @@ urlpatterns = [
     path('yazi-listesi',views.yazi_listesi, name="yazi_listesi"),
     path('text-edit/<int:id>',views.text_edit, name="text_edit"),
     path('advise-edit/<int:id>', views.advise_edit, name="advise_edit"),
-    
+    path('text-delete/<int:id>',views.text_delete, name="text_delete"),
+    path('advise-delete/<int:id>', views.advise_delete, name="advise_delete"),
 ]
