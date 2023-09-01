@@ -98,3 +98,10 @@ def advise_edit(request, id):
         form2 = AdviseCreateForm(instance=myadv)
     return render(request, 'pages/edit-advise.html', {"form2": form2})
 
+def text_delete(request, id):
+    mytext = get_object_or_404(Blog, pk=id)
+    if request.method == "POST":
+        mytext.delete()
+        return redirect("/yazi-listesi")
+    return render(request, 'pages/delete-text.html', {"mytext": mytext})
+
