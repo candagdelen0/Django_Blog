@@ -105,3 +105,10 @@ def text_delete(request, id):
         return redirect("/yazi-listesi")
     return render(request, 'pages/delete-text.html', {"mytext": mytext})
 
+def advise_delete(request, id):
+    myadv = get_object_or_404(Adviser, pk=id)
+    if request.method == "POST":
+        myadv.delete()
+        return  redirect("/yazi-listesi")
+    return render(request,'pages/delete-advise.html', {"myadv":myadv})
+
