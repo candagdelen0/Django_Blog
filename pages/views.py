@@ -87,3 +87,14 @@ def text_edit(request, id):
     else:
         form = TextCreateForm(instance=mytext)
     return render(request, 'pages/edit-text.html',{"form":form})
+
+def advise_edit(request, id):
+    myadv = get_object_or_404(Adviser, pk=id)
+    if request.method == "POST":
+        form2 = AdviseCreateForm(request.POST, request.FILES, instance=myadv)
+        form2.save()
+        return redirect("/yazi-listesi")
+    else:
+        form2 = AdviseCreateForm(instance=myadv)
+    return render(request, 'pages/edit-advise.html', {"form2": form2})
+
