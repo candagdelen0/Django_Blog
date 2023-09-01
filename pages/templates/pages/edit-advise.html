@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-3">
+<div class="row">
+    <div class="col-10 mx-auto">
+        <form method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="col-8 mx-auto mb-2">
+                                <div class="bg-primary mt-3 p-3 fs-3 text-center">Öneri Düzenleme</div>
+                <div class="p-4" style="background-color: #F0F8FF;">
+{% for field in form2 %}
+            	    <div class="mb-3 {% if field.errors %} invalid {% endif %}">
+                            {% if field.errors %} <div class="text-danger"> {{ field.errors }} </div> {% endif %}
+                            <label class="form-label" for="{{field.id_for_label}}">{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+            {% endfor %}
+                <div class="pb-3">
+                    <a href="/yazi-listesi" class="btn btn-danger pb-1 float-start">İptal</a>
+                    <button class="btn btn-primary pb-1 float-end" type="submit">Kaydet</button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}
