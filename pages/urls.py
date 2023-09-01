@@ -12,5 +12,6 @@ urlpatterns = [
     path('create-advise', views.create_advise, name="create_advise"),
     path('yazi-listesi',views.yazi_listesi, name="yazi_listesi"),
     path('text-edit/<int:id>',views.text_edit, name="text_edit"),
+    path('advise-edit/<int:id>', views.advise_edit, name="advise_edit"),
     
 ]
