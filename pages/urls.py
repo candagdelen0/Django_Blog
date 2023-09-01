@@ -11,5 +11,6 @@ urlpatterns = [
     path('create-text',views.create_text, name="create_text"),
     path('create-advise', views.create_advise, name="create_advise"),
     path('yazi-listesi',views.yazi_listesi, name="yazi_listesi"),
+    path('text-edit/<int:id>',views.text_edit, name="text_edit"),
     
 ]
