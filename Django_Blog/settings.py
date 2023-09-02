@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,9 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = BASE_DIR / "uploads"
+MEDIA_URL = "/media/"
 
 
 # Default primary key field type
