@@ -18,3 +18,35 @@ def user_login(request):
             return  render(request, "account/login.html",{"error":"username ya da parola hatalı"})
     else:
         return render(request, "account/login.html")
+
+def user_register(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        email = request.POST["email"]
+        password = request.POST["password"]
+        repassword = request.POST["repassword"]
+
+        if password != repassword:
+            return  render (request, "account/register.html", {
+                "error": "Girilen Parolalar Eşleşmiyor",
+                "username":username,
+                "email": email
+            })
+
+        if User.objects.filter(username=username).exists():
+            return render(request,"account/register.html", {
+                "error": "Kullanıcı Adı Kullanıyor",
+                "username": username,
+                "email": email
+            })
+
+        if User.objects.filter(email=email).exists():
+            return render(request, "account/register.html", {
+                "error": "E-mail Kullanıyor",
+                "username": username,
+                "email": email
+            })
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.save()
+        return  redirect("user_login")
+    return render(request, "account/register.html")
