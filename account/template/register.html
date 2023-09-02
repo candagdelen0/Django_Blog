@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container my-3">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <div class="bg-primary mt-3 p-3 fs-3 text-center">Kayıt  Ol</div>
+                    <div class="p-4" style="background-color: #F0F8FF;">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% if error %}
+                            	<div class="alert alert-danger">
+                                {{ error }}
+                                </div>
+                            {% endif %}
+                            <div class="mb-3">
+                                <label for="username">Kullanıcı Adı</label>
+                                <input type="text" name="username" class="form-control" required value="{% if username %}{{ username }}{% endif %}">
+                            </div>
+                        <div class="mb-3">
+                                <label for="username">E-Mail</label>
+                                <input type="email" name="email" class="form-control" required value="{% if email %}{{ email }}{% endif %}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password">Parola</label>
+                                <input type="password" name="password" class="form-control" required>
+                            </div>
+                        <div class="mb-3">
+                                <label for="repassword">Parola Tekrarı</label>
+                                <input type="password" name="repassword" class="form-control" required>
+                            </div>
+                            <div class="mb-5">
+                                <button type="submit" class="btn btn-primary float-end ps-5 pe-5" name="login">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
