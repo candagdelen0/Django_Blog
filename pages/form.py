@@ -36,3 +36,31 @@ class TextCreateForm(forms.ModelForm):
                 "required": "Metin Yazısını Girmelisiniz"
             }
         }
+
+class AdviseCreateForm(forms.ModelForm):
+    class Meta:
+        model = Adviser
+        fields = {'baslik','aciklama','metin','image'}
+        labels = {
+            'baslik': 'Yazı Başlığı',
+            'aciklama': 'Yazı Özeti',
+            'metin': 'Yazı Tam Metin',
+        }
+        widgets = {
+            "baslik": TextInput(attrs={"class":"form-control"}),
+            "aciklama": TextInput(attrs={"class":"form-control"}),
+            "metin": Textarea(attrs={"class": "form-control"}),
+        }
+        error_messages = {
+            "baslik": {
+                "required": "Başlık Girmelisiniz",
+                "max_lenght": "Maksimum 100 karakter girebilirsiniz"
+            },
+            "aciklama": {
+                "required": "Açıklama Girmelisiniz",
+                "max_lenght": "Maksimum 255 karakter girebilirsiniz"
+            },
+            "metin": {
+                "required": "Metin Yazısını Girmelisiniz"
+            }
+        }
