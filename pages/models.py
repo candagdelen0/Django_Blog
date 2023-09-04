@@ -18,3 +18,11 @@ class Adviser(models.Model):
 
     def __str__(self):
         return f"{self.baslik}"
+    
+class Slider(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="images")
+    text = models.ForeignKey(Blog, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"{self.title}"
