@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="container my-3">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="bg-primary mt-3 p-3 fs-3 text-center">Parola Değiştirme</div>
+            <div class="p-4" style="background-color: #F0F8FF;">
+                <form method="post"  novalidate>
+                    <div class="mb-3 border-bottom border-info text-center text-primary fs-4">{{ form.user }}</div>
+                    <div class="mb-3">
+                        <label for="new_password1">Yeni Parola: </label>
+                        <input type="password" name="new_password1" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="new_password2">Yeni Parola Tekrar: </label>
+                        <input type="password" name="new_password2" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-primary mt-3 form-control" value="Güncelle" name="submit">
+                    </div>
+                </form>
+                <div class="pb-3">
+                    <a href="/" class="float-end text-danger" style="text-decoration: none;">İptal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
