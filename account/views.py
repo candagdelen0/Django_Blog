@@ -54,3 +54,15 @@ def user_register(request):
 def user_logout(request):
     logout(request)
     return redirect("/")
+
+def user_bilgileri(request):
+    if request.method == "POST":
+        form = UserPasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request,user)
+            return redirect("user_bilgileri")
+        else:
+            return render(request, "account/profile.html", {"form": form})
+    form = UserPasswordChangeForm(request.user)
+    return render(request, "account/profile.html", {"form": form})
