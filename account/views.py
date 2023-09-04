@@ -50,3 +50,7 @@ def user_register(request):
         user.save()
         return  redirect("user_login")
     return render(request, "account/register.html")
+
+def user_logout(request):
+    logout(request)
+    return redirect("/")
