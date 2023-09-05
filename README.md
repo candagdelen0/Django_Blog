@@ -11,3 +11,7 @@
 >> ![ekleme](Blog_pr/yazı-ekleme.png)
 >> Sadece üyeler ekleme yapabilir
 >
+> ### Bilgilerim 
+>> ![bilgilerim](Blog_pr/bilgilerim.png)
+>> superuser üyelik sayfası admin sayfası diğer kullanıcılar için parola alanı gelir
+> 
