@@ -15,3 +15,7 @@
 >> ![bilgilerim](Blog_pr/bilgilerim.png)
 >> superuser üyelik sayfası admin sayfası diğer kullanıcılar için parola alanı gelir
 > 
+> ### Yazı Listesi
+>> ![yazı-list](Blog_pr/yazı%20listesi.png)
+>> Sadece superuser için görüntülenebilir alan
+>
