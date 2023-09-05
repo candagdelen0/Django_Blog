@@ -19,3 +19,6 @@
 >> ![yazı-list](Blog_pr/yazı%20listesi.png)
 >> Sadece superuser için görüntülenebilir alan
 >
+> ### Yazı Düzenleme 
+>> ![düzenleme](Blog_pr/editing.png)
+>
